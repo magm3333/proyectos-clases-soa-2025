@@ -1,0 +1,253 @@
+[
+    {
+        "id": "3fe8c4a6a8258cad",
+        "type": "tab",
+        "label": "f1",
+        "disabled": false,
+        "info": "**ESTA ES LA DESCRIPCIONSDMABFLKA NAF.LJBH SDHG MAF \n**AFG\n## S DG\n SDHGS\n FGB",
+        "env": []
+    },
+    {
+        "id": "de7f362746ccaa40",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ea47f1f40882d4cf",
+        "type": "group",
+        "z": "3fe8c4a6a8258cad",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3497099b1ba629c1",
+            "4196d1e2a06d2480",
+            "035567e1590a403e",
+            "1b3ed0745829b520"
+        ],
+        "x": 94,
+        "y": 79,
+        "w": 678,
+        "h": 196
+    },
+    {
+        "id": "1b3ed0745829b520",
+        "type": "group",
+        "z": "3fe8c4a6a8258cad",
+        "g": "ea47f1f40882d4cf",
+        "name": "GRUPO 1",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#6f2fa0",
+            "fill-opacity": "0.47",
+            "label": true,
+            "label-position": "s",
+            "color": "#0070c0"
+        },
+        "nodes": [
+            "d9cb7e5d2b850851",
+            "7d417658dec7e210"
+        ],
+        "x": 354,
+        "y": 159,
+        "w": 392,
+        "h": 90
+    },
+    {
+        "id": "18ed14492c80ccd0",
+        "type": "MySQLdatabase",
+        "name": "Mysql Local",
+        "host": "mysql_soa2025",
+        "port": "3306",
+        "db": "mysql",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "751a73ab494010d9",
+        "type": "inject",
+        "z": "3fe8c4a6a8258cad",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 7100,
+        "y": 7680,
+        "wires": [
+            [
+                "28bbbce872a1927a"
+            ]
+        ]
+    },
+    {
+        "id": "2709fa45ef065e1a",
+        "type": "debug",
+        "z": "3fe8c4a6a8258cad",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 7440,
+        "y": 7600,
+        "wires": []
+    },
+    {
+        "id": "28bbbce872a1927a",
+        "type": "exec",
+        "z": "3fe8c4a6a8258cad",
+        "command": "uname -a",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 7280,
+        "y": 7660,
+        "wires": [
+            [
+                "2709fa45ef065e1a"
+            ],
+            [
+                "2709fa45ef065e1a"
+            ],
+            [
+                "2709fa45ef065e1a"
+            ]
+        ]
+    },
+    {
+        "id": "3497099b1ba629c1",
+        "type": "inject",
+        "z": "3fe8c4a6a8258cad",
+        "g": "ea47f1f40882d4cf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT 1 AS C1, 'A' AS C2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 155,
+        "y": 120,
+        "wires": [
+            [
+                "035567e1590a403e"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "4196d1e2a06d2480",
+        "type": "debug",
+        "z": "3fe8c4a6a8258cad",
+        "g": "ea47f1f40882d4cf",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "035567e1590a403e",
+        "type": "mysql",
+        "z": "3fe8c4a6a8258cad",
+        "g": "ea47f1f40882d4cf",
+        "mydb": "18ed14492c80ccd0",
+        "name": "",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "4196d1e2a06d2480"
+            ]
+        ]
+    },
+    {
+        "id": "6df9d583da2dc739",
+        "type": "comment",
+        "z": "3fe8c4a6a8258cad",
+        "name": "",
+        "info": "",
+        "x": 560,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "d9cb7e5d2b850851",
+        "type": "catch",
+        "z": "3fe8c4a6a8258cad",
+        "g": "1b3ed0745829b520",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "7d417658dec7e210"
+            ]
+        ]
+    },
+    {
+        "id": "7d417658dec7e210",
+        "type": "debug",
+        "z": "3fe8c4a6a8258cad",
+        "g": "1b3ed0745829b520",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 200,
+        "wires": []
+    }
+]
